@@ -22,6 +22,8 @@ public class main {
 
 			PlayerUI obj = new PlayerUI();
             obj.start();
+            obj.randomGenerator();
+            
 		}
 
 	}
