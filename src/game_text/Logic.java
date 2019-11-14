@@ -15,7 +15,7 @@ public class Logic extends Thread {
 	}
 
 	public static void gamePlay() throws InterruptedException {
-		
+
 		Logic t1 = new Logic();
 		t1.run();
 
@@ -26,29 +26,21 @@ public class Logic extends Thread {
 			Player.setName(Ui.namelist.get(0));
 		}
 
-		
 		Logic t2 = new Logic();
 		t2.run();
-		 
 
 	}
-	
-	
-	 
-		 
-		
-	 
 
 	@Override
 	public void run() {
- 
+
 		while (sum < 50) {
-			  var = Dice.diceValue();
+			var = Dice.diceValue();
 
 			sum += var;
 			try {
-				 Data.getInstance().getConnection();
-				
+				Data.getInstance().getConnection();
+
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
