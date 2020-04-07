@@ -19,10 +19,7 @@ public class main {
 		}
 
 		if (choice == 2) {
-
-			PlayerUI obj = new PlayerUI();
-            obj.start();
-            obj.randomGenerator();
+          BInterface.start();
             
 		}
 

@@ -1,5 +1,9 @@
 package Battleship;
 
+import java.awt.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,174 +11,238 @@ package Battleship;
  */
 
 import java.util.ArrayList;
+import javax.swing.*;
 import java.util.Collections;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import Battleship.BInterface;
 
 /**
  *
  * @author vansh
  */
-public class PlayerUI extends javax.swing.JFrame {
+public class PlayerUI extends javax.swing.JFrame implements ActionListener {
+	ArrayList<JButton> myButtons = new ArrayList<>();
 
 	/**
 	 * Creates new form PlayerUI
 	 */
 	public PlayerUI() {
 		initComponents();
+        
+//		JButton[] buttonArray = new JButton[30];
+//		buttonArray[0] = jButton70;
+//		buttonArray[1] = jButton71;
+//		buttonArray[2] = jButton72;
+//		buttonArray[3] = jButton73;
+//		buttonArray[4] = jButton74;
+//		buttonArray[5] = jButton75;
+//		buttonArray[6] = jButton76;
+//		buttonArray[7] = jButton77;
+//		buttonArray[8] = jButton78;
+//		buttonArray[9] = jButton79;
+//		buttonArray[10] = jButton80;
+//		buttonArray[11] = jButton81;
+//		buttonArray[12] = jButton82;
+//		buttonArray[13] = jButton83;
+//		buttonArray[14] = jButton84;
+//		buttonArray[15] = jButton85;
+//		buttonArray[16] = jButton86;
+//		buttonArray[17] = jButton87;
+//		buttonArray[18] = jButton88;
+//		buttonArray[19] = jButton89;
+//		buttonArray[20] = jButton90;
+//		buttonArray[21] = jButton91;
+//		buttonArray[22] = jButton92;
+//		buttonArray[23] = jButton93;
+//		buttonArray[24] = jButton94;
+//		buttonArray[25] = jButton95;
+//		buttonArray[26] = jButton96;
+//		buttonArray[27] = jButton97;
+//		buttonArray[28] = jButton98;
+//		buttonArray[29] = jButton99;
+//		
+//		
+//		
+//       
+
+		// JOptionPane.showMessageDialog(jInternalFrame2, "hi ");
 	}
 
 	static ArrayList<Integer> count = new ArrayList<Integer>();
 
-	public static void randomGenerator() {
-		while (count.size() < 32) {
-			int abc = (int) (Math.random() * ((32 - 1) + 1) + 1);
-			System.out.println(abc);
-			if (!count.contains(abc)) {
+	public static Icon getShip(int value) {
+		if (value == 0) {
+			Icon i = new ImageIcon(
+					"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
 
-				switch (abc) {
-
-				case 1:
-					count.add(1);
-					jButton38.doClick();
-					 break;
-
-				case 2:
-					count.add(2);
-					jButton39.doClick();
-					 break;
-
-				case 3:
-					count.add(3);
-					jButton40.doClick();
-					 break;
-
-				case 4:
-					count.add(4);
-					jButton41.doClick();
-					 break;
-
-				case 5:
-					count.add(5);
-					jButton42.doClick();
-					 break;
-
-				case 6:
-					count.add(6);
-					jButton43.doClick();
-					 break;
-
-				case 7:
-					count.add(7);
-					jButton44.doClick();
-					 break;
-
-				case 8:
-					count.add(8);
-					jButton45.doClick();
-					 
-					break;
-				case 9:
-					jButton46.doClick();
-					count.add(9);
-					break;
-				case 10:
-					jButton47.doClick();
-					count.add(10);
-					break;
-				case 11:
-					jButton48.doClick();
-					count.add(11);
-					break;
-				case 12:
-					jButton49.doClick();
-					count.add(12);
-					break;
-				case 13:
-					jButton50.doClick();
-					count.add(13);
-					break;
-				case 14:
-					jButton51.doClick();
-					count.add(14);
-					break;
-				case 15:
-					jButton52.doClick();
-					count.add(15);
-					break;
-				case 16:
-					jButton53.doClick();
-					count.add(16);
-					break;
-				case 17:
-					jButton54.doClick();
-					count.add(17);
-					break;
-				case 18:
-					jButton55.doClick();
-					count.add(18);
-					break;
-				case 19:
-					jButton56.doClick();
-					count.add(19);
-					break;
-				case 20:
-					jButton57.doClick();
-					count.add(20);
-					break;
-				case 21:
-					jButton58.doClick();
-					count.add(21);
-					break;
-				case 22:
-					jButton59.doClick();
-					count.add(22);
-					break;
-				case 23:
-					jButton60.doClick();
-					count.add(23);
-					break;
-				case 24:
-					jButton61.doClick();
-					count.add(24);
-					break;
-				case 25:
-					jButton62.doClick();
-					count.add(25);
-					break;
-				case 26:
-					jButton63.doClick();
-					count.add(26);
-					break;
-				case 27:
-					jButton64.doClick();
-					count.add(27);
-					break;
-				case 28:
-					jButton65.doClick();
-					count.add(28);
-					break;
-				case 29:
-					jButton66.doClick();
-					count.add(29);
-					break;
-				case 30:
-					jButton67.doClick();
-					count.add(30);
-					break;
-				case 31:
-					jButton68.doClick();
-					count.add(31);
-					break;
-				case 32:
-					jButton69.doClick();
-					count.add(32);
-					break;
-				}
-				
-			}
+			return i;// TODO add your handling code here:
 		}
+
+		if (value == 1) {
+			Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
+			return i;
+
+		}
+		return null;
+	}
+
+	static boolean isClicked = false;
+
+	public static String getString(String e) {
+		return e;
+
+	}
+	// Random button for AI or Computer Turn.
+
+	public static void randomGenerator() {
+
+		int abc = (int) (Math.random() * ((32 - 1) + 1) + 1);
+		System.out.println(abc);
+
+		if (!count.contains(abc)) {
+
+			switch (abc) {
+
+			case 1:
+				count.add(1);
+				jButton38.doClick();
+				break;
+
+			case 2:
+				count.add(2);
+				jButton39.doClick();
+				break;
+
+			case 3:
+				count.add(3);
+				jButton40.doClick();
+				break;
+
+			case 4:
+				count.add(4);
+				jButton41.doClick();
+				break;
+
+			case 5:
+				count.add(5);
+				jButton42.doClick();
+				break;
+
+			case 6:
+				count.add(6);
+				jButton43.doClick();
+				break;
+
+			case 7:
+				count.add(7);
+				jButton44.doClick();
+				break;
+
+			case 8:
+				count.add(8);
+				jButton45.doClick();
+
+				break;
+			case 9:
+				jButton46.doClick();
+				count.add(9);
+				break;
+			case 10:
+				jButton47.doClick();
+				count.add(10);
+				break;
+			case 11:
+				jButton48.doClick();
+				count.add(11);
+				break;
+			case 12:
+				jButton49.doClick();
+				count.add(12);
+				break;
+			case 13:
+				jButton50.doClick();
+				count.add(13);
+				break;
+			case 14:
+				jButton51.doClick();
+				count.add(14);
+				break;
+			case 15:
+				jButton52.doClick();
+				count.add(15);
+				break;
+			case 16:
+				jButton53.doClick();
+				count.add(16);
+				break;
+			case 17:
+				jButton54.doClick();
+				count.add(17);
+				break;
+			case 18:
+				jButton55.doClick();
+				count.add(18);
+				break;
+			case 19:
+				jButton56.doClick();
+				count.add(19);
+				break;
+			case 20:
+				jButton57.doClick();
+				count.add(20);
+				break;
+			case 21:
+				jButton58.doClick();
+				count.add(21);
+				break;
+			case 22:
+				jButton59.doClick();
+				count.add(22);
+				break;
+			case 23:
+				jButton60.doClick();
+				count.add(23);
+				break;
+			case 24:
+				jButton61.doClick();
+				count.add(24);
+				break;
+			case 25:
+				jButton62.doClick();
+				count.add(25);
+				break;
+			case 26:
+				jButton63.doClick();
+				count.add(26);
+				break;
+			case 27:
+				jButton64.doClick();
+				count.add(27);
+				break;
+			case 28:
+				jButton65.doClick();
+				count.add(28);
+				break;
+			case 29:
+				jButton66.doClick();
+				count.add(29);
+				break;
+			case 30:
+				jButton67.doClick();
+				count.add(30);
+				break;
+			case 31:
+				jButton68.doClick();
+				count.add(31);
+				break;
+			case 32:
+				jButton69.doClick();
+				count.add(32);
+				break;
+			}
+
+		}
+
 		Collections.sort(count);
 		System.out.println(count);
 	}
@@ -189,6 +257,7 @@ public class PlayerUI extends javax.swing.JFrame {
 	private void initComponents() {
 
 		jLabel1 = new javax.swing.JLabel();
+		
 		jLabel2 = new javax.swing.JLabel();
 		jLabel3 = new javax.swing.JLabel();
 		jLabel4 = new javax.swing.JLabel();
@@ -267,18 +336,19 @@ public class PlayerUI extends javax.swing.JFrame {
 
 		jLabel1.setText("Player 1");
 
-		jLabel2.setText("NAme1");
+		String name = (BInterface.namelist.get(0));
+		jLabel2.setText(name);
 
 		jLabel3.setText("Player 2 ");
 
-		jLabel4.setText("NAme 2");
+		jLabel4.setText(BInterface.namelist.get(1));
 
 		jPanel1.setBackground(new java.awt.Color(199, 93, 93));
 		jPanel1.setLayout(null);
 
-		jLabel5.setText("Player 1 Score");
+		jLabel5.setText("Player 1 Score:" + " " + Player.Player1_Score);
 
-		jLabel6.setText("Player 2 Score");
+		jLabel6.setText("Player 2 Score:" + " " + Player.Player2_Score);
 
 		jInternalFrame1.setVisible(true);
 		jInternalFrame1.getContentPane().setLayout(new java.awt.GridLayout(8, 8));
@@ -293,6 +363,7 @@ public class PlayerUI extends javax.swing.JFrame {
 		jButton70.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButton70ActionPerformed(evt);
+
 			}
 		});
 		jInternalFrame1.getContentPane().add(jButton70);
@@ -820,19 +891,20 @@ public class PlayerUI extends javax.swing.JFrame {
 				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
 		jButton37.setIcon(i);
 		System.out.println("one is pressed");
-
+		System.out.println(37);
 	}
 
 	private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {
 		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
 		jButton38.setIcon(i);
-
+		System.out.println(37);
 		// TODO add your handling code here:
 	}
 
 	private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {
 		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
 		jButton39.setIcon(i); // TODO add your handling code here:
+		System.out.println(37);
 	}
 
 	private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -999,128 +1071,193 @@ public class PlayerUI extends javax.swing.JFrame {
 		jButton69.setIcon(i); // TODO add your handling code here:
 	}
 
+	static ArrayList<Integer> pt = new ArrayList<Integer>();
+
 	private void jButton70ActionPerformed(java.awt.event.ActionEvent evt) {
-		//Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		//jButton70.setIcon(i); // TODO add your handling code here:
+		buttonClicked(jButton70);
+
+	}
+	
+	
+	public static void updateScore() {
+		
+		
+		
+	}
+	
+	
+	
+	
+
+	public static int buttonClicked(JButton j1) {
+
+		int value = (int) (Math.round(Math.random()));
+		j1.setIcon(getShip(value));
+		pt.add(1);
+
+		if (value == 1) {
+			System.out.println("hello");
+           
+			JOptionPane.showMessageDialog(jInternalFrame2, "OOPS !  You missed: ");
+			j1.setEnabled(false);
+			
+			JOptionPane.showMessageDialog(jInternalFrame2, "HAHA its my turn now: ");
+			return value;
+
+		} else
+			JOptionPane.showMessageDialog(jInternalFrame2, "Wohoo !  Nice Shot: ");
+		return value;
+
 	}
 
 	private void jButton71ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton71);
 		// TODO add your handling code here:
 	}
 
 	private void jButton72ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton72);
 		// TODO add your handling code here:
 	}
 
 	private void jButton73ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton73);
 		// TODO add your handling code here:
 	}
 
 	private void jButton74ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton74);
 		// TODO add your handling code here:
 	}
 
 	private void jButton75ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton75);
 		// TODO add your handling code here:
 	}
 
 	private void jButton76ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton76);
 		// TODO add your handling code here:
 	}
 
 	private void jButton77ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton77);
 		// TODO add your handling code here:
 	}
 
 	private void jButton78ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton78);
 		// TODO add your handling code here:
+		// jButton78.setIcon(getShip());
 	}
 
 	private void jButton79ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton79);
+		// jButton79.setIcon(getNull());
 		// TODO add your handling code here:
 	}
 
 	private void jButton80ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton80);
 		// TODO add your handling code here:
 	}
 
 	private void jButton81ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton81);
 		// TODO add your handling code here:
 	}
 
 	private void jButton82ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton82);
 		// TODO add your handling code here:
 	}
 
 	private void jButton83ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton83);
 		// TODO add your handling code here:
 	}
 
 	private void jButton84ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton84);
 		// TODO add your handling code here:
 	}
 
 	private void jButton85ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton85);
 		// TODO add your handling code here:
 	}
 
 	private void jButton86ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton86);
 		// TODO add your handling code here:
 	}
 
 	private void jButton87ActionPerformed(java.awt.event.ActionEvent evt) {
-		// TODO add your handling code here:
+		buttonClicked(jButton87);// TODO add your handling code here:
 	}
 
 	private void jButton88ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton88);
 		// TODO add your handling code here:
 	}
 
 	private void jButton89ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton89);
 		// TODO add your handling code here:
 	}
 
 	private void jButton90ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton90);
 		// TODO add your handling code here:
 	}
 
 	private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton91);
 		// TODO add your handling code here:
 	}
 
 	private void jButton92ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton92);
 		// TODO add your handling code here:
 	}
 
 	private void jButton93ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton93);
 		// TODO add your handling code here:
 	}
 
 	private void jButton94ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton94);
 		// TODO add your handling code here:
 	}
 
 	private void jButton95ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton95);
 		// TODO add your handling code here:
 	}
 
 	private void jButton96ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton96);
 		// TODO add your handling code here:
 	}
 
 	private void jButton97ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton97);
 		// TODO add your handling code here:
 	}
 
 	private void jButton98ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton98);
 		// TODO add your handling code here:
 	}
 
 	private void jButton99ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton99);
 		// TODO add your handling code here:
 	}
 
 	private void jButton100ActionPerformed(java.awt.event.ActionEvent evt) {
+		buttonClicked(jButton100);
 		// TODO add your handling code here:
 	}
 
@@ -1227,8 +1364,8 @@ public class PlayerUI extends javax.swing.JFrame {
 	private javax.swing.JButton jButton97;
 	private javax.swing.JButton jButton98;
 	private javax.swing.JButton jButton99;
-	private javax.swing.JInternalFrame jInternalFrame1;
-	private javax.swing.JInternalFrame jInternalFrame2;
+	public static javax.swing.JInternalFrame jInternalFrame1;
+	public static javax.swing.JInternalFrame jInternalFrame2;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JLabel jLabel3;
@@ -1238,4 +1375,17 @@ public class PlayerUI extends javax.swing.JFrame {
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JSeparator jSeparator2;
 	// End of variables declaration
+
+	public int randomValue() {
+
+		int rand = (int) (Math.random() * 1) + 0;
+		return rand;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String f = e.paramString(); // TODO Auto-generated method stub
+		System.out.println(f);
+
+	}
 }
