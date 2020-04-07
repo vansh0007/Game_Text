@@ -28,7 +28,7 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 	 */
 	public PlayerUI() {
 		initComponents();
-        
+
 //		JButton[] buttonArray = new JButton[30];
 //		buttonArray[0] = jButton70;
 //		buttonArray[1] = jButton71;
@@ -99,7 +99,12 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 		int abc = (int) (Math.random() * ((32 - 1) + 1) + 1);
 		System.out.println(abc);
 
-		if (!count.contains(abc)) {
+		if (count.contains(abc)){
+			
+			randomGenerator();
+			
+		}
+		else
 
 			switch (abc) {
 
@@ -240,12 +245,20 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 				count.add(32);
 				break;
 			}
-
-		}
-
 		Collections.sort(count);
 		System.out.println(count);
-	}
+		System.out.println(" Player 1: "+ Player.Player1_Score);
+		System.out.println(" Player 2: "+ Player.Player2_Score);
+		if(count.size()==32) {
+			
+			System.out.println(" Final Player 1: "+ Player.Player1_Score);
+			System.out.println(" Final Player 2: "+ Player.Player2_Score);
+		}
+		}
+
+		 
+		
+	
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -257,7 +270,7 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 	private void initComponents() {
 
 		jLabel1 = new javax.swing.JLabel();
-		
+
 		jLabel2 = new javax.swing.JLabel();
 		jLabel3 = new javax.swing.JLabel();
 		jLabel4 = new javax.swing.JLabel();
@@ -886,107 +899,99 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 		pack();
 	}// </editor-fold>
 
-	private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
+	public static void doFunction(JButton j1, int i) {
+
+		Icon icon = new ImageIcon(
 				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton37.setIcon(i);
-		System.out.println("one is pressed");
-		System.out.println(37);
+		Icon ic = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
+
+		if (i == 1) {
+
+			j1.setIcon(icon);
+			Player.Player2_Score++;
+			JOptionPane.showMessageDialog(jInternalFrame2, "  I M Pro Dude:");
+			System.out.println("vaise time pass" + Player.Player2_Score);
+			
+		}
+
+		else
+			j1.setIcon(ic);
+			//j1.setEnabled(false);
+
+	}
+
+	private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {
+		doFunction(jButton37, 1);
 	}
 
 	private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton38.setIcon(i);
-		System.out.println(37);
+		doFunction(jButton38, 0);
 		// TODO add your handling code here:
 	}
 
 	private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton39.setIcon(i); // TODO add your handling code here:
-		System.out.println(37);
+		doFunction(jButton39, 0);
 	}
 
 	private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton40.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton40, 0);
 	}
 
 	private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton41.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton41, 0);
 	}
 
 	private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton42.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton42, 1);
 	}
 
 	private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton43.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton43, 0);
+		// TODO add your handling code here:
 	}
 
 	private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton44.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton44, 1);
 	}
 
 	private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton45.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton45, 0);
 	}
 
 	private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton46.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton46, 1);
 	}
 
 	private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton47.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton47, 1);
 	}
 
 	private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton48.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton48, 0);
 	}
 
 	private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton49.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton49, 1);
 	}
 
 	private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton50.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton50, 0);
 	}
 
 	private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton51.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton51, 1);
 	}
 
 	private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton52.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton52, 1);
 	}
 
 	private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton53.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton53, 0);
 	}
 
 	private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton54.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton54, 1);
 	}
 
 	private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -995,9 +1000,9 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 		jButton55.setIcon(i); // TODO add your handling code here:
 	}
 
-	private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton56.setIcon(i); // TODO add your handling code here:
+	private int jButton56ActionPerformed(java.awt.event.ActionEvent evt) {
+		doFunction(jButton56, 0);
+		return 0;// TODO add your handling code here:
 	}
 
 	private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1049,26 +1054,19 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 	}
 
 	private void jButton66ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton66.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton66, 1);
 	}
 
 	private void jButton67ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon("C:\\Users\\vansh\\Desktop\\cross.JPG");
-		jButton67.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton67, 0);
 	}
 
 	private void jButton68ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton68.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton68, 1);
 	}
 
 	private void jButton69ActionPerformed(java.awt.event.ActionEvent evt) {
-		Icon i = new ImageIcon(
-				"C:\\Users\\vansh\\Documents\\NetBeansProjects\\JavaApplication14\\src\\javaapplication14\\image1.jpg");
-		jButton69.setIcon(i); // TODO add your handling code here:
+		doFunction(jButton69, 0);
 	}
 
 	static ArrayList<Integer> pt = new ArrayList<Integer>();
@@ -1077,17 +1075,24 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 		buttonClicked(jButton70);
 
 	}
-	
-	
-	public static void updateScore() {
+	 
 		
 		
 		
+	 
+
+	public static void mainHandler()   {
+
+		int coin = (int) (Math.round(Math.random()));
+		if (coin == 0) {
+			JOptionPane.showMessageDialog(jInternalFrame2, "  HA! ITs my turn LOOSER:");
+			randomGenerator();
+			
+			 
+		} else
+			JOptionPane.showMessageDialog(jInternalFrame2, "  Go On Start your turn. Dont waste my time: ");
+		  
 	}
-	
-	
-	
-	
 
 	public static int buttonClicked(JButton j1) {
 
@@ -1097,15 +1102,19 @@ public class PlayerUI extends javax.swing.JFrame implements ActionListener {
 
 		if (value == 1) {
 			System.out.println("hello");
-           
+
 			JOptionPane.showMessageDialog(jInternalFrame2, "OOPS !  You missed: ");
 			j1.setEnabled(false);
-			
-			JOptionPane.showMessageDialog(jInternalFrame2, "HAHA its my turn now: ");
+
+			JOptionPane.showMessageDialog(jInternalFrame2, "Hmm ! its my turn now: ");
+			randomGenerator();
 			return value;
 
 		} else
 			JOptionPane.showMessageDialog(jInternalFrame2, "Wohoo !  Nice Shot: ");
+		JOptionPane.showMessageDialog(jInternalFrame2, "Watchout ! its my turn now: ");
+		   Player.Player1_Score++;
+		   randomGenerator();
 		return value;
 
 	}

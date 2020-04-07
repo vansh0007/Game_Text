@@ -24,7 +24,7 @@ public class BInterface {
 
 		PlayerUI obj = new PlayerUI();
 		obj.start();
-		Logic.randomTurns();
+		 obj.mainHandler();
 
 	}
 }
